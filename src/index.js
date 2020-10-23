@@ -1,6 +1,15 @@
 import Qs from 'qs';
 import React, { Component } from 'react';
-import { StyleSheet, View, ActivityIndicator, unstable_createElement as createElement } from 'react-native';
+import { StyleSheet, View, ActivityIndicator } from 'react-native';
+
+
+const createElement: <P>(
+  type: React.ReactType,
+  props?: P,
+  ...children: React.ReactNode[]
+) => React.ReactElement<P> =
+  require('react-native').unstable_createElement ||
+  require('react-native').createElement;
 
 export class WebView extends Component {
   static defaultProps = {
